@@ -13,6 +13,7 @@ define superfirewall::firewall_enhanced (
   $sport = undef,
   $state = undef,
   $table = undef,
+  $provider = undef
 ) {
 
   if ($track) {
@@ -30,6 +31,7 @@ define superfirewall::firewall_enhanced (
       sport       => $sport,
       state       => $state,
       table       => $table,
+      provider    => $provider,
     }
 
     firewall { [
@@ -103,6 +105,7 @@ define superfirewall::firewall_enhanced (
       proto       => $proto,
       source      => $source,
       sport       => $sport,
+      provider    => $provider,
     }
 
     # TODO(tlim): This could be a little more optimized by adding a --jump
@@ -122,6 +125,7 @@ define superfirewall::firewall_enhanced (
       state       => undef,
       # Keep these sorted alphabetically:
       proto       => $proto,
+      provider    => $provider,
     }
 
     # The normal filter entry:
@@ -138,6 +142,7 @@ define superfirewall::firewall_enhanced (
       proto       => $proto,
       source      => $source,
       sport       => $sport,
+      provider    => $provider,
     }
 
     # The reverse filter entry:
@@ -154,6 +159,7 @@ define superfirewall::firewall_enhanced (
       state       => undef,
       # Keep these sorted alphabetically:
       proto       => $proto,
+      provider    => $provider,
     }
 
   }
